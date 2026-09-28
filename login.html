@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Portal - Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+
+  <div class="glow-orb"></div>
+
+  <div class="glow-orb glow-orb-2"></div>
+
+  <div class="container" id="cardContainer">
+  
+    <div id="loginForm">
+
+      <h1 class="title">WELCOME</h1>
+      <p class="subtitle">Access your academy dashboard</p>
+      
+      <form onsubmit="executeLogin(event)">
+
+        <div class="input-group">
+          <input type="text" id="userInput" required autocomplete="off">
+          <label>Username</label>
+        </div>
+
+        <div class="input-group">
+
+          <input type="password" required autocomplete="off">
+          <label>Password</label>
+        </div>
+
+        <div class="captcha-container">
+          <div class="captcha-left">
+            <input type="checkbox" id="botCheck" required>
+
+            <label for="botCheck" class="captcha-label">I'm not a robot</label>
+            
+          </div>
+          <div class="captcha-icon">🤖</div>
+        </div>
+
+        <button type="submit" class="btn-signin">SIGN IN</button>
+      </form>
+    </div>
+
+
+    <div class="profile-box" id="profileBox">
+      <div class="profile-avatar" id="userInitial">A</div>
+
+      <h2 class="welcome-text" id="displayUser">User</h2>
+
+      <div class="status-badge">● Authenticated</div>
+
+      <button class="btn-logout" onclick="executeLogout()">LOG OUT</button>
+
+    </div>
+  </div>
+
+  <script src="sigin.js"></script>
+</body>
+</html>

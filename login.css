@@ -1,0 +1,282 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #05020a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+
+    #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .glow-orb {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(51, 57, 234, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(50px);
+      z-index: 2;
+      animation: pulse 8s infinite alternate ease-in-out;
+    }
+
+    .glow-orb-2 {
+      right: 10%;
+      bottom: 10%;
+      background: radial-gradient(circle, rgba(50, 50, 230, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+      animation-delay: -4s;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.2) translate(30px, -30px); }
+    }
+
+  
+    .container {
+      position: relative;
+      z-index: 10;
+      width: 420px;
+      padding: 50px 40px;
+      background: rgba(5, 7, 28, 0.65);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(34, 88, 213, 0.25);
+      border-radius: 24px;
+
+      box-shadow: 0 0 50px rgba(7, 34, 168, 0.2), 
+                  inset 0 0 15px rgba(7, 55, 166, 0.1);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      border-color: rgba(68, 85, 247, 0.5);
+      box-shadow: 0 0 60px rgba(14, 51, 234, 0.35), 
+                  inset 0 0 20px rgba(18, 85, 247, 0.2);
+    }
+
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 8px;
+
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(18, 85, 247, 0.8);
+    }
+
+    .subtitle {
+      color: #a78bfa;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(18, 85, 247, 0.3);
+      border-radius: 12px;
+      outline: none;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .input-group label {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #0f16da;
+      font-size: 0.9rem;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group input:valid {
+      border-color: #0835a5;
+      background: rgba(12, 75, 224, 0.08);
+      box-shadow: 0 0 15px rgba(18, 85, 247, 0.3);
+    }
+
+    .input-group input:focus ~ label,
+    .input-group input:valid ~ label {
+      top: -10px;
+      left: 12px;
+      font-size: 0.75rem;
+      padding: 0 6px;
+      background: #0f071c;
+      color: #183af8c4;
+      border-radius: 4px;
+    }
+
+  
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .captcha-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .captcha-left input[type="checkbox"] {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #083096;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.2s;
+    }
+
+    .captcha-left input[type="checkbox"]:checked {
+      background: #042371;
+      border-color: #042780;
+      box-shadow: 0 0 10px #042371;
+    }
+
+    .captcha-left input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      left: 4px;
+      top: -1px;
+    }
+
+    .captcha-label {
+      color: #ddd;
+      font-size: 0.85rem;
+      user-select: none;
+    }
+
+    .captcha-icon {
+      font-size: 1.4rem;
+      filter: drop-shadow(0 0 5px #042371);
+    }
+
+    
+    .btn-signin {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #0d3fbb, #042371);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(18, 85, 247, 0.4);
+    }
+
+    .btn-signin:hover {
+      background: linear-gradient(135deg, #042a8b, #0837ae);
+      box-shadow: 0 0 30px rgba(18, 85, 247, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .profile-box {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .profile-avatar {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #042371, #1242ba);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(18, 85, 247, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .welcome-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      color: #4ade80;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin-bottom: 25px;
+    }
+
+    .btn-logout {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid #ef4444;
+      color: #ef4444;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background: #ef4444;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
